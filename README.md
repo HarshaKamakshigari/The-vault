@@ -52,5 +52,5 @@ To run this project locally, follow these steps:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
-If you have any questions or suggestions, feel free to reach out to me at [your.email@example.com](mailto:harsha.kamakshigari@gmail.com).
+If you have any questions or suggestions, feel free to reach out to me at [harsha.kamakshigari@gmail.com](mailto:harsha.kamakshigari@gmail.com).
 
