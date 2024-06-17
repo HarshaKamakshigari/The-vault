@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/imgs/Group 1.png">
+
+<title>Transactions</title>
+<style>
+   body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #131313;
+        color: white;
+    }
+    .sidenav {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+    }
+    .sidenav a {
+        /* margin-top:px ; */
+        padding: 25px 15px;
+        /* padding: 10px 15px; */
+        text-decoration: none;
+        text-align: left;
+        font-size: 18px;
+        color: #fff;
+        display: block;
+    }
+    .sidenav a:hover {
+        background-color: #3c75e8;
+    }
+    .content {
+        margin-left: 220px;
+        padding: 20px;
+    }
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .content {
+        margin-left: 220px;
+        padding: 20px;
+    }
+    .content h1 {
+        margin-bottom: 20px;
+    }
+    .transaction {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .transaction:hover{
+        transform: scale(1.01);
+    }
+    .transaction h2 {
+        margin-top: 0;
+    }
+    .transaction p {
+        margin-bottom: 0;
+    }
+    .filter-form {
+        margin-bottom: 20px;
+    }
+    .filter-form select {
+        padding: 5px;
+        font-size: 16px;
+    }
+    .filter-form select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+    appearance: none; /* Remove default dropdown arrow */
+}
+
+.filter-form select:focus {
+    outline: none; /* Remove focus outline */
+    /* Change border color on focus */
+}
+
+.filter-form select:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+    <div class="logo">The Vault.</div>
+    <a href="home.html">Home</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="trans.html">Transactions</a>
+    <a href="pay.html">Payments</a>
+    <a href="login.html">Log out</a>
+</div>
+
+<div class="content">
+    <h1>Transactions</h1>
+
+    
+    <!-- <h2>
+     Current Balance
+    </h2>
+    <h3 style="font-weight: 700; font-size: 200%;">
+        50,000 USD
+    </h3> -->
+    
+    <form class="filter-form">
+        <label for="filter">Filter by:</label>
+        <select id="filter" onchange="filterTransactions()">
+            <option value="all">All</option>
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+        </select>
+    </form>
+    
+    <div class="transaction" data-type="debit">
+        <h2>Shopping</h2>
+        <p>Date: January 1, 2024</p>
+        <p>Type: Debit</p>
+        <p>Amount: $100</p>
+    </div>
+    
+    <div class="transaction" data-type="credit">
+        <h2>Sushi</h2>
+        <p>Date: January 2, 2024</p>
+        <p>Type: Credit</p>
+        <p>Amount: $200</p>
+    </div>
+    
+    <div class="transaction" data-type="debit">
+        <h2>Prost pub</h2>
+        <p>Date: January 3, 2024</p>
+        <p>Type: Debit</p>
+        <p>Amount: $150</p>
+    </div>
+</div>
+
+<script>
+    function filterTransactions() {
+        var filter = document.getElementById('filter').value;
+        var transactions = document.querySelectorAll('.transaction');
+
+        transactions.forEach(function(transaction) {
+            if (filter === 'all') {
+                transaction.style.display = 'block';
+            } else if (transaction.getAttribute('data-type') === filter) {
+                transaction.style.display = 'block';
+            } else {
+                transaction.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

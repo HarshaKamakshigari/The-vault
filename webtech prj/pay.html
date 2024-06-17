@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/imgs/Group 1.png">
+
+<title>Payments</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #131313;
+        color: white;
+    }
+    .sidenav {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+    }
+    .sidenav a {
+        padding: 25px 15px;
+        text-decoration: none;
+        text-align: left;
+        font-size: 18px;
+        color: #fff;
+        display: block;
+    }
+    .sidenav a:hover {
+        background-color: #3c75e8;
+    }
+    .content {
+        margin-left: 220px;
+        padding: 20px;
+    }
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .content h1 {
+        margin-bottom: 20px;
+    }
+    .payment-form {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .payment-form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .payment-form input[type="text"],
+    .payment-form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #3c75e8;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #333;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    .payment-form input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #3c75e8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .payment-form input[type="submit"]:hover {
+        background-color: #2f5bb7;
+    }
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+    <div class="logo">The Vault.</div>
+    <a href="home.html">Home</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="trans.html">Transactions</a>
+    <a href="#">Payments</a>
+    <a href="login.html">Log out</a>
+</div>
+
+<div class="content">
+    <h1>Payments</h1>
+
+    <div class="payment-form">
+        <form>
+            <label for="recipient">Account number:</label>
+            <input type="text" id="recipient" name="recipient" placeholder="Enter Account number">
+
+            <label for="amount">Amount:</label>
+            <input class="pp" type="number" id="amount" name="amount" placeholder="Enter amount">
+
+            <input class="pp_sub" type="submit" value="Send Payment">
+        </form>
+    </div>
+    <div class="payment-form">
+        <form>
+            <label for="recipient">Card:</label>
+            <input type="text" id="recipient" name="recipient" placeholder="Enter CardNumber">
+
+            <label for="amount">Amount:</label>
+            <input class="aa" type="number" id="amount" name="amount" placeholder="Enter amount">
+
+            <input class="aa_sub" type="submit" value="Add Money">
+        </form>
+    </div>
+</div>
+
+<script>
+    let sub_btn = document.querySelector('.pp_sub');
+    let amt = document.querySelector('.pp');
+   
+    sub_btn.addEventListener('click',()=>{
+    let add_amt = parseInt(amt.value);
+    let balance = localStorage.getItem('balance');
+    balance = parseInt(balance)-add_amt;
+
+    localStorage.setItem('balance', balance);
+    alert("Amount sent successfully. Your new balance is: " + balance);
+    })
+
+
+    let sub = document.querySelector('.aa_sub');
+    let aamt = document.querySelector('.aa');
+   
+    sub.addEventListener('click',()=>{
+    let sub_amt = parseInt(aamt.value);
+    let balance = localStorage.getItem('balance');
+    balance = parseInt(balance)+sub_amt;
+
+    localStorage.setItem('balance', balance);
+    alert("Amount sadded successfully. Your new balance is: " + balance);
+    })
+</script>
+</body>
+</html>

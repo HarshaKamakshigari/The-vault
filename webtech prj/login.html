@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/x-icon" href="/imgs/Group 1.png">
+
+    <title>Login Page</title>
+    
+</head>
+<body>
+    <div class="header">
+        <div class="logo">The VAULT</div>
+    </div>
+    <div id="cont">
+        <div class="container">
+            <h2 class="login">Login</h2>
+            <form id="loginForm">
+                <label for="username">UserID</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="links-container">
+                    <p class="forgot">Forgot password</p>
+                   
+                </div>
+                <button type="submit" class="loginbtn" style="background-color: rgb(86, 233, 88); text-decoration: none; color: white; padding: 10px 50px 10px; margin-top: 20px; border-radius: 5px;  ">Login</button>
+            </form>
+        </div>
+        <div id="pic">
+           <center> <img style="height: 350px; width: 350px; padding-top: 15px;" src="https://images.ctfassets.net/lzny33ho1g45/6TK1TbLNZQ4iHr0PjdZS2Y/ffb5c5646b914435f10b085b012bc78d/zap-qr-1.png">
+            <h2 style="color: #f3f1f1; font-weight: 500;">
+                login via QR code by our app
+            </h2>
+        </center>
+        </div>
+
+        
+    </div>
+    <div class="footer">
+     <p>Secured page  &copy; 2024 The Vault. All rights reserved.</p>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            // Get the username and password
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            // Check if username and password are correct
+            if (username === "harsha" && password === "12345") {
+                // Redirect to another page
+                window.location.href = "home.html";
+            } else {
+                // Show error message
+                alert("Invalid username or password");
+            }
+        });
+    </script>
+</body>
+</html>
